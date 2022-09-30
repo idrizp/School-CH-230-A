@@ -48,6 +48,11 @@ int main()
 
     // Allocate the array
     int *arr = (int *)malloc(sizeof(int) * n);
+    if (arr == NULL)
+    {
+        printf("Memory allocation error!\n");
+        exit(1);
+    }
 
     // Populate the array
     for (int i = 0; i < n; i++)

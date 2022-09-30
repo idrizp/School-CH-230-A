@@ -1,6 +1,6 @@
 /*
     CH-230-A
-    a4_p6.c
+    a4_p8.c
     Idriz Pelaj
     ipelaj@jacobs-university.de
 */
