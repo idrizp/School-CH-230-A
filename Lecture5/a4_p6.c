@@ -8,36 +8,24 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int max_value(int arr[], int dim)
+void print_two_highest_values(int arr[], int dim)
 {
-    // Get the maximum value by looping
-    // through the array and populating
-    // the max value
+    // We keep track of two values, the previous maximum and the current.
+    // We loop through and populate them accordingly with the comparison.
     int max = arr[0];
+    int prev = arr[0];
     for (int i = 1; i < dim; i++)
     {
         if (arr[i] > max)
         {
+            // We set the previous value to the old maximum and update
+            // the new maximum.
+            prev = max;
             max = arr[i];
         }
     }
-    return max;
-}
-
-int min_value(int arr[], int dim)
-{
-    // Get the minimum value by looping
-    // through the array and populating
-    // the max value
-    int min = arr[0];
-    for (int i = 1; i < dim; i++)
-    {
-        if (arr[i] < min)
-        {
-            min = arr[i];
-        }
-    }
-    return min;
+    printf("Highest value: %d\n", max);
+    printf("Second highest value: %d\n", prev);
 }
 
 int main()
@@ -60,9 +48,8 @@ int main()
         scanf("%d", &arr[i]);
     }
 
-    // Print the results
-    printf("min: %d\n", min_value(arr, n));
-    printf("max: %d\n", max_value(arr, n));
+    // Call the function
+    print_two_highest_values(arr, n);
 
     // Free the memory used by the array
     free(arr);
