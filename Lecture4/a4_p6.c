@@ -13,7 +13,9 @@ void print_two_highest_values(int arr[], int dim)
     // We keep track of two values, the previous maximum and the current.
     // We loop through and populate them accordingly with the comparison.
     int max = arr[0];
-    int prev = arr[0];
+
+    // This is the minimum possible value of an integer.
+    int prev = -2147483648;
     for (int i = 1; i < dim; i++)
     {
         if (arr[i] > max)
@@ -22,6 +24,12 @@ void print_two_highest_values(int arr[], int dim)
             // the new maximum.
             prev = max;
             max = arr[i];
+        }
+        else if (arr[i] < max && arr[i] > prev)
+        {
+            // If the current is greater than the previous value but less than the maximum
+            // we update the previous value
+            prev = arr[i];
         }
     }
     printf("Highest value: %d\n", max);
