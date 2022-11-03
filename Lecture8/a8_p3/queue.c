@@ -77,16 +77,16 @@ int dequeue(Item *pitem, Queue *pq)
     Node *front = pq->front;
     *pitem = front->item;
 
-    // If the rear is the same as the front, we can delete the rear
-    // entirely
+    // If the rear is the same as the front, we can delete the rear and the
+    // front entirely
     if (pq->rear == pq->front)
     {
-        pq->rear = NULL;
+        pq->front = pq->rear = NULL;
     }
 
     // Free the memory used by the front of the queue, update the front
     // to point to the next element in the queue.
-    pq->front = pq->front->next;
+    pq->front = front->next;
     free(front);
     pq->items = pq->items - 1;
     return 0;
