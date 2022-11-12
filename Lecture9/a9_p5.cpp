@@ -18,7 +18,7 @@ int main(int args, char **argv)
     srand(static_cast<unsigned int>(time(0)));
 
     // Set the random number.
-    int number = rand() % 100;
+    int number = (rand() % 100) + 1;
     int tries = 0;
 
     int input;

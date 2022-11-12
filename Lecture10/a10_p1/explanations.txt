@@ -1,0 +1,7 @@
+a) By removing "using namespace std", we no longer bring in the standard library namespace into the global scope.
+An alternative to using namespace std would simply be to explicitly prefix each statement that uses declarations from the
+std namespace with std::, I.E std::endl, std::cout, etc.
+
+b) When removing the class name's prefix, you can not access the object's data members. 
+Potential alternative solutions would be to provide the object itself to the setHunger method, for example, and making the data member public,
+which would go against best practices, but would work.  
