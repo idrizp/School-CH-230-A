@@ -33,7 +33,7 @@ class Critter
     void setThirst(double newthirst);
     // getter method
     int getHunger();
-    int getThirst();
+    double getThirst();
     // service method
     void print();
 };

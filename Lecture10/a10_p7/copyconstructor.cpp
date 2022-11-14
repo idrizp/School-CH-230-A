@@ -79,13 +79,25 @@ void funcByRef(NaiveString &s)
 int main(int argc, char **argv)
 {
     NaiveString a("aBcBdB");
-    a.print();
+    // Create an object using the copy constructor
+    NaiveString b(a);
 
-    cout << "About to call funcbyval()" << endl;
+    cout << "About to call funcbyval() on a" << endl;
     funcByVal(a);
-    a.print();
 
-    cout << "About to call funcbyref()" << endl;
+    cout << "About to call funcbyref() on a" << endl;
     funcByRef(a);
-    a.print();
+
+    // Log messages for the copy constructor
+    cout << "About to call funcbyval() on b(copy constructor created "
+            "object)"
+         << endl;
+    funcByVal(b);
+    b.print();
+
+    cout
+        << "About to call funcbyref() on b(copy constructor created object"
+        << endl;
+    funcByRef(b);
+    b.print();
 }

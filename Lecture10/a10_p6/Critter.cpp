@@ -14,31 +14,40 @@ using namespace std;
 Critter::Critter()
 {
     name = "default_critter";
-    hunger = 0;
+    setHunger(2);
     boredom = 0;
-    height = 10;
-    // Update thirst to be the same as the hunger
     thirst = hunger;
+    height = 10;
 }
 
 Critter::Critter(string name)
 {
     this->name = name;
-    hunger = 0;
+    setHunger(2);
+    thirst = hunger;
     boredom = 0;
     height = 10;
-    // Update thirst to be the same as the hunger
-    thirst = hunger;
 }
 
 Critter::Critter(string name, int hunger, int boredom, double height)
 {
     this->name = name;
-    this->hunger = hunger;
+    // Use the setter so we can do the conversion in the constructor.
+    setHunger(hunger);
+    thirst = this->hunger;
     this->boredom = boredom;
     this->height = height;
-    // Update thirst to be the same as the hunger
-    this->thirst = hunger;
+}
+
+Critter::Critter(string name, int hunger, int boredom, double height,
+                 double thirst)
+{
+    this->name = name;
+    // Use the setter so we can do the conversion in the constructor.
+    setHunger(hunger);
+    this->thirst = thirst;
+    this->boredom = boredom;
+    this->height = height;
 }
 
 void Critter::setName(string &newname)
@@ -48,18 +57,31 @@ void Critter::setName(string &newname)
 
 void Critter::setHunger(int newhunger)
 {
+    // Update the hunger as a double
     hunger = newhunger / 10;
 }
 
 void Critter::print()
 {
-    // Print out the thirst as well
     cout << "I am " << name << ". My hunger level is " << hunger
-         << ". I have a height of " << height << " and a thirst of "
-         << thirst << endl;
+         << ". I have a height of " << height << " and my thirst level is "
+         << getThirst() << endl;
 }
 
 int Critter::getHunger()
 {
+    // Return the hunger as an int
     return (hunger * 10);
+}
+
+// Properties for the thirst.
+
+void Critter::setThirst(double newthirst)
+{
+    thirst = newthirst;
+}
+
+double Critter::getThirst()
+{
+    return thirst;
 }

@@ -14,7 +14,9 @@ using namespace std;
 Critter::Critter()
 {
     name = "default_critter";
-    hunger = 0;
+    // We use the setter so we can change the internal implementation of
+    // the setHunger method later on.
+    setHunger(2);
     boredom = 0;
     height = 10;
 }
@@ -22,7 +24,7 @@ Critter::Critter()
 Critter::Critter(string name)
 {
     this->name = name;
-    hunger = 0;
+    setHunger(2);
     boredom = 0;
     height = 10;
 }
@@ -30,7 +32,7 @@ Critter::Critter(string name)
 Critter::Critter(string name, int hunger, int boredom, double height)
 {
     this->name = name;
-    this->hunger = hunger;
+    setHunger(hunger);
     this->boredom = boredom;
     this->height = height;
 }

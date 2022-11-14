@@ -12,6 +12,7 @@ using namespace std;
 
 int main()
 {
+    // Program to test the Complex class
 
     float c1_real, c2_real, c1_imag, c2_imag;
     cin >> c1_real >> c1_imag >> c2_real >> c2_imag;

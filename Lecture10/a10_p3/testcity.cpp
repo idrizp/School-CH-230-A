@@ -10,6 +10,8 @@
 
 int main()
 {
+    // Tests for the City class by creating city instances.
+
     // Definition for bremen
     City bremen;
 

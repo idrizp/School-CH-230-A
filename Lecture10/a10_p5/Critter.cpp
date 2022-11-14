@@ -14,7 +14,7 @@ using namespace std;
 Critter::Critter()
 {
     name = "default_critter";
-    hunger = 0;
+    setHunger(2);
     boredom = 0;
     height = 10;
 }
@@ -22,7 +22,7 @@ Critter::Critter()
 Critter::Critter(string name)
 {
     this->name = name;
-    hunger = 0;
+    setHunger(2);
     boredom = 0;
     height = 10;
 }
@@ -30,7 +30,8 @@ Critter::Critter(string name)
 Critter::Critter(string name, int hunger, int boredom, double height)
 {
     this->name = name;
-    this->hunger = hunger;
+    // Use the setter so we can do the conversion in the constructor.
+    setHunger(hunger);
     this->boredom = boredom;
     this->height = height;
 }
