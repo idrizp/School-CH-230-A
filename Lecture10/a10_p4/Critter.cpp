@@ -13,6 +13,7 @@ using namespace std;
 // Constructors
 Critter::Critter()
 {
+    cout << "Called default constructor" << endl;
     name = "default_critter";
     // We use the setter so we can change the internal implementation of
     // the setHunger method later on.
@@ -23,6 +24,7 @@ Critter::Critter()
 
 Critter::Critter(string name)
 {
+    cout << "Called name-only constructor" << endl;
     this->name = name;
     setHunger(2);
     boredom = 0;
@@ -31,6 +33,7 @@ Critter::Critter(string name)
 
 Critter::Critter(string name, int hunger, int boredom, double height)
 {
+    cout << "Called hunger, boredom, and height constructor" << endl;
     this->name = name;
     setHunger(hunger);
     this->boredom = boredom;

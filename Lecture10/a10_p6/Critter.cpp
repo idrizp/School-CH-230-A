@@ -22,6 +22,7 @@ Critter::Critter()
 
 Critter::Critter(string name)
 {
+    cout << "Called name-only constructor" << endl;
     this->name = name;
     setHunger(2);
     thirst = hunger;
@@ -31,6 +32,7 @@ Critter::Critter(string name)
 
 Critter::Critter(string name, int hunger, int boredom, double height)
 {
+    cout << "Called name, hunger, boredom, and height constructor" << endl;
     this->name = name;
     // Use the setter so we can do the conversion in the constructor.
     setHunger(hunger);
@@ -42,6 +44,8 @@ Critter::Critter(string name, int hunger, int boredom, double height)
 Critter::Critter(string name, int hunger, int boredom, double height,
                  double thirst)
 {
+    cout << "Called name, hunger, boredom, height, and thirst constructor"
+         << endl;
     this->name = name;
     // Use the setter so we can do the conversion in the constructor.
     setHunger(hunger);
@@ -63,9 +67,10 @@ void Critter::setHunger(int newhunger)
 
 void Critter::print()
 {
-    cout << "I am " << name << ". My hunger level is " << hunger
-         << ". I have a height of " << height << " and my thirst level is "
-         << getThirst() << endl;
+    // Log the hunger level as a percentage integer
+    cout << "I am " << name << ". My hunger level is " << getHunger()
+         << "%. I have a height of " << height
+         << " and my thirst level is " << getThirst() << endl;
 }
 
 int Critter::getHunger()
